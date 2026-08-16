@@ -1,0 +1,21 @@
+.declarationSection { min-height: calc(100vh - 84px); padding: 100px max(24px, calc((100% - 1180px) / 2)); background: #f2eee5; }
+.declarationSection .reliefSectionIntro h1 { margin: 0; font-size: clamp(2.5rem, 6vw, 5rem); line-height: .95; letter-spacing: -.05em; font-weight: 500; }
+.declarationNotice { margin-bottom: 1.2rem; padding: 1rem 1.2rem; border-left: 4px solid var(--blue); background: white; }
+.declarationNotice p { margin: .35rem 0 0; color: var(--muted); font-size: .8rem; }
+.declarationList { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 1.5rem; }
+.declarationList article { padding: 1.6rem; background: white; border: 1px solid var(--line); }
+.declarationHeading { display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
+.declarationHeading span { padding: .4rem .55rem; background: #d9e9ee; color: #18556b; font-size: .66rem; font-weight: 900; text-transform: uppercase; }
+.declarationHeading small { color: var(--muted); font-weight: 800; }
+.declarationList h2 { margin: 1.2rem 0 .5rem; font-size: 1.6rem; font-weight: 600; }
+.declarationList > article > p { color: var(--muted); line-height: 1.5; }
+.declarationList dl { display: grid; grid-template-columns: 120px 1fr; gap: .65rem; padding: 1rem 0; border-top: 1px solid var(--line); font-size: .76rem; }
+.declarationList dt { color: var(--muted); }
+.declarationList dd { margin: 0; font-weight: 700; line-height: 1.5; }
+.assistanceTags { display: flex; flex-wrap: wrap; gap: .45rem; margin-bottom: 1rem; }
+.assistanceTags span { padding: .42rem .55rem; font-size: .65rem; font-weight: 800; }
+.assistanceTags .available { background: #d9eee1; color: #185b37; }
+.assistanceTags .unavailable { background: #ece9e2; color: #646b69; }
+.declarationList a { color: var(--blue); font-size: .78rem; font-weight: 900; text-decoration: underline; text-underline-offset: 3px; }
+@media (max-width: 800px) { .declarationList { grid-template-columns: 1fr; } }
+@media (max-width: 520px) { .declarationList dl { grid-template-columns: 1fr; } }

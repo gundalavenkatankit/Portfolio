@@ -1,0 +1,33 @@
+.coordinatorSection { min-height: calc(100vh - 84px); padding: 90px max(24px, calc((100% - 1180px) / 2)); background: #f2eee5; }
+.coordinatorHero { max-width: 900px; }
+.coordinatorHero h1 { margin: .7rem 0 1rem; font-size: clamp(3rem, 7vw, 6.5rem); line-height: .9; letter-spacing: -.06em; font-weight: 500; }
+.coordinatorHero > p:not(.reliefEyebrow):not(.alertStatus) { max-width: 680px; color: var(--muted); font-size: 1.05rem; line-height: 1.6; }
+.coordinatorHero form { max-width: 760px; display: grid; gap: .5rem; margin: 2rem 0 1rem; }
+.coordinatorHero form label { font-size: .75rem; font-weight: 900; }
+.coordinatorHero form div { display: grid; grid-template-columns: 1fr auto; }
+.coordinatorHero input { min-height: 56px; padding: 0 1rem; border: 1px solid #7f908f; color: var(--ink); font: inherit; }
+.coordinatorHero button { min-height: 56px; padding: 0 1.3rem; border: 0; background: var(--orange); color: white; font-weight: 900; }
+.coordinatorHero button:disabled { opacity: .6; }
+.situationSummary { display: grid; grid-template-columns: 2fr repeat(3, 1fr); margin: 3rem 0 1rem; border: 1px solid var(--line); background: white; }
+.situationSummary div { min-height: 110px; display: flex; flex-direction: column; justify-content: space-between; gap: .5rem; padding: 1.2rem; border-right: 1px solid var(--line); }
+.situationSummary div:last-child { border-right: 0; }
+.situationSummary span { color: var(--muted); font-size: .7rem; font-weight: 800; text-transform: uppercase; }
+.situationSummary strong { font-size: 1.1rem; }
+.coordinatorActions { padding: 2rem; background: var(--navy); color: white; }
+.coordinatorActions h2 { margin: .5rem 0 1.5rem; font-size: 2rem; }
+.coordinatorActions ol { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin: 0; padding: 0; list-style-position: inside; }
+.coordinatorActions li { padding: 1rem; border: 1px solid #47616a; }
+.coordinatorActions li strong,.coordinatorActions li span { display: block; }
+.coordinatorActions li span { margin-top: .5rem; color: #b8cdd0; font-size: .78rem; line-height: 1.5; }
+.coordinatorGrid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 1rem; }
+.coordinatorGrid > section { padding: 1.5rem; background: white; border: 1px solid var(--line); }
+.coordinatorSectionHeading { display: flex; justify-content: space-between; gap: 1rem; align-items: start; padding-bottom: 1rem; border-bottom: 1px solid var(--line); }
+.coordinatorSectionHeading > div { display: flex; align-items: center; gap: .7rem; }
+.coordinatorSectionHeading span { color: var(--orange); font-size: .7rem; font-weight: 900; }
+.coordinatorSectionHeading h2 { margin: 0; font-size: 1.3rem; }
+.coordinatorSectionHeading a,.coordinatorGrid article a { color: var(--blue); font-size: .72rem; font-weight: 900; text-decoration: underline; text-underline-offset: 3px; }
+.coordinatorGrid article { padding: 1rem 0; border-bottom: 1px solid var(--line); }
+.coordinatorGrid article:last-child { border-bottom: 0; }
+.coordinatorGrid article p,.coordinatorEmpty { color: var(--muted); font-size: .78rem; line-height: 1.5; }
+@media (max-width: 850px) { .situationSummary { grid-template-columns: 1fr 1fr; }.situationSummary div { border-bottom: 1px solid var(--line); }.coordinatorActions ol,.coordinatorGrid { grid-template-columns: 1fr; } }
+@media (max-width: 520px) { .coordinatorHero form div,.situationSummary { grid-template-columns: 1fr; }.situationSummary div { border-right: 0; }.coordinatorSectionHeading { flex-direction: column; } }

@@ -1,0 +1,19 @@
+.recoverySection { min-height: calc(100vh - 84px); padding: 100px max(24px, calc((100% - 1180px) / 2)); background: #e8f0ec; }
+.recoverySection .reliefSectionIntro h1 { margin: 0; font-size: clamp(2.5rem, 6vw, 5rem); line-height: .95; letter-spacing: -.05em; font-weight: 500; }
+.recoveryNotice { margin-bottom: 1rem; padding: 1rem 1.2rem; border-left: 4px solid var(--blue); background: white; }
+.recoveryNotice p { margin: .35rem 0 0; color: var(--muted); font-size: .8rem; }
+.recoveryList { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 1.5rem; }
+.recoveryList article { padding: 1.6rem; background: white; border: 1px solid var(--line); }
+.recoveryHeading { display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
+.recoveryHeading span { padding: .4rem .55rem; background: #d9eee1; color: #185b37; font-size: .66rem; font-weight: 900; text-transform: uppercase; }
+.recoveryHeading small { color: var(--muted); }
+.recoveryList h2 { margin: 1.2rem 0 .5rem; font-size: 1.5rem; }
+.recoveryList > article > p { color: var(--muted); line-height: 1.5; }
+.recoveryList dl { display: grid; grid-template-columns: 110px 1fr; gap: .65rem; padding: 1rem 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); font-size: .76rem; }
+.recoveryList dt { color: var(--muted); }
+.recoveryList dd { margin: 0; font-weight: 700; line-height: 1.5; }
+.recoveryNotes { padding: .8rem; background: #f4f3ef; font-size: .75rem; }
+.recoveryActions { display: flex; flex-wrap: wrap; gap: 1rem; margin-top: 1rem; }
+.recoveryActions a { color: var(--blue); font-size: .78rem; font-weight: 900; text-decoration: underline; text-underline-offset: 3px; }
+@media (max-width: 800px) { .recoveryList { grid-template-columns: 1fr; } }
+@media (max-width: 520px) { .recoveryList dl { grid-template-columns: 1fr; } }
