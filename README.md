@@ -68,7 +68,7 @@ src/app/api                     Server routes for official public data
 tests                           Automated behavior tests
 scripts                         Live data verification scripts
 docs                            Research and project documentation
-public                          Résumé and public assets
+public                          Public application assets
 ```
 
 ## Data and product notes

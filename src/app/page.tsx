@@ -187,7 +187,6 @@ export default function Home() {
               <p>My experience spans Java and Spring services, Python and Node.js backends, React and Next.js interfaces, AI workflows, data systems, AWS infrastructure, and the testing and monitoring needed to keep products dependable.</p>
             </div>
             <div className="about-links">
-              <a href="/venkat-ankit-gundala-resume.pdf" target="_blank">View résumé <ArrowIcon /></a>
               <a href="https://www.linkedin.com/in/gundalankit" target="_blank" rel="noreferrer">LinkedIn <ArrowIcon /></a>
               <a href="https://github.com/gundalavenkatankit" target="_blank" rel="noreferrer">GitHub <ArrowIcon /></a>
             </div>
