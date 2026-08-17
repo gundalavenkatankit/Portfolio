@@ -3,8 +3,14 @@ import "./civicconnect.css";
 import "./service-expansion.css";
 
 export const metadata: Metadata = {
-  title: "CivicConnect | City services made simpler",
+  title: "CivicConnect",
   description: "A fictional and accessible city services experience created as a public portfolio project.",
+  alternates: { canonical: "/civicconnect" },
+  openGraph: {
+    title: "CivicConnect | Accessible City Services",
+    description: "Explore a working city services experience with accessible discovery, applications, issue reporting, and request tracking.",
+    url: "/civicconnect",
+  },
 };
 
 export default function CivicConnectLayout({ children }: LayoutProps<"/civicconnect">) {
