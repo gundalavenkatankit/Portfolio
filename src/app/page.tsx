@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 const projects = [
   {
     number: "01",
@@ -9,6 +11,11 @@ const projects = [
     tone: "civic",
     eyebrow: "City services, without the runaround",
     stat: "12 service categories",
+    image: "/case-studies/civicconnect/services-desktop.png",
+    imageAlt: "CivicConnect city services directory shown on a desktop screen",
+    role: "Product designer and developer",
+    contribution: "Service architecture, guided forms, and responsive interface",
+    evidence: "Two complete resident journeys with status tracking",
   },
   {
     number: "02",
@@ -20,6 +27,11 @@ const projects = [
     tone: "retail",
     eyebrow: "Clear information when every minute matters",
     stat: "Official alert data",
+    image: "/case-studies/reliefready/dashboard-desktop.png",
+    imageAlt: "ReliefReady disaster resource dashboard showing official alerts and shelter access",
+    role: "Product designer and full stack developer",
+    contribution: "Public data coordination, location search, and resilient states",
+    evidence: "Four official data sources and 716 postal cases evaluated",
   },
   {
     number: "03",
@@ -31,6 +43,9 @@ const projects = [
     tone: "ai",
     eyebrow: "Understand costs before care",
     stat: "Upcoming project",
+    role: "Research and product strategy",
+    contribution: "Cost comparison, provider context, and assistance discovery",
+    evidence: "Problem definition and source research in progress",
   },
 ];
 
@@ -122,17 +137,35 @@ export default function Home() {
           <div className="project-list">
             {projects.map((project) => (
               <article className="project" key={project.title}>
-                <div className={`project-visual ${project.tone}`}>
-                  <div className="visual-top"><span>{project.title}</span><span>{project.number} / 03</span></div>
-                  <p>{project.eyebrow}</p>
-                  <strong>{project.stat}</strong>
-                  <div className="visual-lines"><i /><i /><i /></div>
-                </div>
+                {project.image ? (
+                  <div className={`project-preview ${project.tone}`}>
+                    <div className="preview-label"><span>Live product</span><span>{project.number} / 03</span></div>
+                    <Image
+                      src={project.image}
+                      alt={project.imageAlt}
+                      width={1425}
+                      height={891}
+                      sizes="(max-width: 800px) 100vw, 58vw"
+                    />
+                  </div>
+                ) : (
+                  <div className={`project-visual ${project.tone}`}>
+                    <div className="visual-top"><span>{project.title}</span><span>{project.number} / 03</span></div>
+                    <p>{project.eyebrow}</p>
+                    <strong>{project.stat}</strong>
+                    <div className="visual-lines"><i /><i /><i /></div>
+                  </div>
+                )}
                 <div className="project-copy">
                   <span className="project-number">{project.number}</span>
                   <p className="project-category">{project.category}</p>
                   <h3>{project.title}</h3>
                   <p className="project-description">{project.description}</p>
+                  <dl className="project-proof">
+                    <div><dt>Role</dt><dd>{project.role}</dd></div>
+                    <div><dt>Contribution</dt><dd>{project.contribution}</dd></div>
+                    <div><dt>Evidence</dt><dd>{project.evidence}</dd></div>
+                  </dl>
                   <ul>{project.tags.map((tag) => <li key={tag}>{tag}</li>)}</ul>
                   {project.title === "CivicConnect" ? <div className="projectLinks"><a className="coming-soon" href="/work/civicconnect">Read case study →</a><a href="/civicconnect">Open live project →</a></div> : project.title === "Disaster Resource Coordinator" ? <div className="projectLinks"><a href="/work/reliefready">Read case study →</a><a href="/disaster-resource-coordinator">Open live project →</a></div> : <span className="coming-soon">Upcoming project · Research stage</span>}
                 </div>
