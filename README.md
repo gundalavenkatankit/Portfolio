@@ -1,36 +1,90 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Venkat Ankit Gundala Portfolio
 
-## Getting Started
+A personal portfolio for Venkat Ankit Gundala, a full stack software engineer building reliable backend systems, AI products, and accessible interfaces.
 
-First, run the development server:
+## Live portfolio
+
+[View the deployed portfolio](https://venkat-ankit-gundala-portfolio.vercel.app)
+
+## Featured work
+
+1. CivicConnect
+
+   A fictional city services platform with accessible service discovery, permit applications, issue reporting, and request tracking.
+
+2. Disaster Resource Coordinator
+
+   A public safety experience that combines official weather alerts, disaster declarations, shelter records, and recovery center information.
+
+3. Healthcare Cost Navigator
+
+   An upcoming project currently in the research stage. The goal is to help patients understand procedure costs, compare providers, and find financial assistance.
+
+## Technology
+
+1. Next.js 16 with the App Router
+2. React 19 and TypeScript
+3. CSS with responsive layouts and accessible interaction states
+4. Node test runner for automated tests
+5. Official public data from the National Weather Service and FEMA
+6. Vercel for hosting and continuous deployment
+
+## Local development
+
+Install Node.js 20 or newer and pnpm, then run:
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
+pnpm install
 pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Verification
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Run the automated checks before publishing changes:
 
-## Learn More
+```bash
+pnpm test
+pnpm lint
+pnpm build
+```
 
-To learn more about Next.js, take a look at the following resources:
+The live shelter verification script calls the locally running application. Start the development server first, then use a second terminal:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```bash
+pnpm test:shelters:live
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Project structure
 
-## Deploy on Vercel
+```text
+src/app                         Portfolio pages and application routes
+src/app/civicconnect            CivicConnect product experience
+src/app/disaster-resource-coordinator
+                                Disaster Resource Coordinator experience
+src/app/work                    Detailed case studies
+src/app/api                     Server routes for official public data
+tests                           Automated behavior tests
+scripts                         Live data verification scripts
+docs                            Research and project documentation
+public                          Résumé and public assets
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Data and product notes
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+CivicConnect is a fictional demonstration and does not process real city requests or payments.
+
+Disaster Resource Coordinator displays information from official public sources. Emergency conditions, operating status, and capacity can change quickly. Users should verify details with local authorities before traveling.
+
+## Deployment
+
+The main branch deploys automatically to Vercel after changes are pushed to GitHub.
+
+## Contact
+
+[Email Venkat Ankit Gundala](mailto:gundalavenkatankit@gmail.com)
+
+[LinkedIn](https://www.linkedin.com/in/gundalankit)
+
+[GitHub](https://github.com/gundalavenkatankit)

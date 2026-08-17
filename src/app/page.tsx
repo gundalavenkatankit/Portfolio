@@ -30,7 +30,7 @@ const projects = [
     tags: ["Healthcare data", "Cost comparison", "Data UX"],
     tone: "ai",
     eyebrow: "Understand costs before care",
-    stat: "Research in progress",
+    stat: "Upcoming project",
   },
 ];
 
@@ -65,6 +65,14 @@ const experience = [
   },
 ];
 
+const education = {
+  period: "August 2022 to May 2024",
+  company: "University of Texas at Arlington",
+  role: "Master of Science in Computer Science",
+  summary: "Completed graduate study in computer science while expanding my foundation in software engineering, data systems, and applied computing.",
+  skills: "Graduate education · Arlington, Texas",
+};
+
 function ArrowIcon() {
   return (
     <svg aria-hidden="true" viewBox="0 0 20 20" fill="none">
@@ -87,7 +95,7 @@ export default function Home() {
           <a href="#about">About</a>
           <a href="#contact">Contact</a>
         </nav>
-        <a className="header-cta" href="https://mail.google.com/mail/?view=cm&fs=1&to=gundalavenkatankit@gmail.com&su=Portfolio%20conversation" target="_blank" rel="noreferrer">Let&apos;s talk <ArrowIcon /></a>
+        <a className="header-cta" href="mailto:gundalavenkatankit@gmail.com?subject=Portfolio%20conversation">Let&apos;s talk <ArrowIcon /></a>
       </header>
 
       <main id="main">
@@ -108,7 +116,7 @@ export default function Home() {
           <div className="section-heading">
             <span>Selected work</span>
             <h2>Built to solve real problems.</h2>
-            <p>Three projects that show how I think, from structure and interaction through implementation and testing.</p>
+            <p>Two completed projects and one upcoming exploration show how I think, from structure and interaction through implementation and testing.</p>
           </div>
 
           <div className="project-list">
@@ -126,7 +134,7 @@ export default function Home() {
                   <h3>{project.title}</h3>
                   <p className="project-description">{project.description}</p>
                   <ul>{project.tags.map((tag) => <li key={tag}>{tag}</li>)}</ul>
-                  {project.title === "CivicConnect" ? <div className="projectLinks"><a className="coming-soon" href="/work/civicconnect">Read case study →</a><a href="/civicconnect">Open live project →</a></div> : project.title === "Disaster Resource Coordinator" ? <div className="projectLinks"><a href="/work/reliefready">Read case study →</a><a href="/disaster-resource-coordinator">Open live project →</a></div> : <span className="coming-soon">Research in progress</span>}
+                  {project.title === "CivicConnect" ? <div className="projectLinks"><a className="coming-soon" href="/work/civicconnect">Read case study →</a><a href="/civicconnect">Open live project →</a></div> : project.title === "Disaster Resource Coordinator" ? <div className="projectLinks"><a href="/work/reliefready">Read case study →</a><a href="/disaster-resource-coordinator">Open live project →</a></div> : <span className="coming-soon">Upcoming project · Research stage</span>}
                 </div>
               </article>
             ))}
@@ -149,8 +157,8 @@ export default function Home() {
 
         <section className="experience-section" id="experience">
           <div className="section-heading compact">
-            <span>Experience</span>
-            <h2>Four years of building for production.</h2>
+            <span>Experience and education</span>
+            <h2>Production experience grounded in computer science.</h2>
           </div>
           <div className="experience-list">
             {experience.map((item) => (
@@ -161,6 +169,12 @@ export default function Home() {
                 <p className="experience-skills">{item.skills}</p>
               </article>
             ))}
+            <article key={education.company}>
+              <p className="experience-period">{education.period}</p>
+              <div><h3>{education.company}</h3><span>{education.role}</span></div>
+              <p>{education.summary}</p>
+              <p className="experience-skills">{education.skills}</p>
+            </article>
           </div>
         </section>
 
@@ -175,6 +189,7 @@ export default function Home() {
             <div className="about-links">
               <a href="/venkat-ankit-gundala-resume.pdf" target="_blank">View résumé <ArrowIcon /></a>
               <a href="https://www.linkedin.com/in/gundalankit" target="_blank" rel="noreferrer">LinkedIn <ArrowIcon /></a>
+              <a href="https://github.com/gundalavenkatankit" target="_blank" rel="noreferrer">GitHub <ArrowIcon /></a>
             </div>
           </div>
         </section>
@@ -182,7 +197,7 @@ export default function Home() {
         <section className="contact-section" id="contact">
           <span>Have a project or opportunity in mind?</span>
           <h2>Let&apos;s make something <em>useful.</em></h2>
-          <a href="https://mail.google.com/mail/?view=cm&fs=1&to=gundalavenkatankit@gmail.com&su=Portfolio%20conversation" target="_blank" rel="noreferrer">Start a conversation <ArrowIcon /></a>
+          <a href="mailto:gundalavenkatankit@gmail.com?subject=Portfolio%20conversation">Start a conversation <ArrowIcon /></a>
           <p>gundalavenkatankit@gmail.com</p>
         </section>
       </main>
