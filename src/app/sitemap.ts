@@ -11,6 +11,7 @@ const routes = [
   "/civicconnect/services/parking-permits",
   "/civicconnect/report",
   "/disaster-resource-coordinator",
+  "/disaster-resource-coordinator/assistant",
   "/disaster-resource-coordinator/my-area",
   "/disaster-resource-coordinator/shelters",
   "/disaster-resource-coordinator/declarations",
@@ -20,7 +21,7 @@ const routes = [
 export default function sitemap(): MetadataRoute.Sitemap {
   return routes.map((route, index) => ({
     url: `${siteUrl}${route}`,
-    lastModified: "2026-08-17",
+    lastModified: "2026-08-23",
     changeFrequency: index === 0 ? "monthly" : "yearly",
     priority: index === 0 ? 1 : route.startsWith("/work/") ? 0.9 : 0.7,
   }));

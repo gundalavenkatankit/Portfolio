@@ -4,6 +4,7 @@ import "./shelters.css";
 import "./declarations.css";
 import "./recovery-centers.css";
 import "./my-area.css";
+import "./assistant.css";
 
 export const metadata: Metadata = {
   title: "ReliefReady Disaster Resource Coordinator",
