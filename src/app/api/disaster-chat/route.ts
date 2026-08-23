@@ -1,4 +1,5 @@
 import { understandDisasterQuestion } from "@/lib/deterministic-assistant.mjs";
+import { enhanceGroundedAnswer } from "@/lib/cloudflare-assistant.mjs";
 
 type ConversationContext = { area?: string | null; location?: string | null };
 type Source = { name: string; url: string };
@@ -32,7 +33,7 @@ function payload(answer: string, context: ConversationContext, sourceList: Sourc
   return { answer, context, sources: sourceList, results };
 }
 
-export async function POST(request: Request) {
+async function createDeterministicResponse(request: Request) {
   const contentLength = Number(request.headers.get("content-length") ?? 0);
   if (contentLength > 10000) return Response.json({ error: "Request is too large" }, { status: 413 });
   const body = await request.json().catch(() => null) as { question?: string; context?: ConversationContext } | null;
@@ -93,5 +94,26 @@ export async function POST(request: Request) {
     return Response.json(payload(`I found ${centers.length} active FEMA recovery center${centers.length === 1 ? "" : "s"} nearest to ${data.searchedLocation ?? location}. Confirm hours before traveling.`, { area, location }, [sources.recovery], centers.slice(0, 5).map(item => ({ title: item.name, details: [item.type, item.address, `Status: ${item.status}`, item.distanceMiles != null ? `Approximately ${item.distanceMiles} miles away` : "Distance unavailable", item.schedule.length ? `${item.schedule[0].day}: ${item.schedule[0].open} to ${item.schedule[0].close}` : "Hours not provided"], url: item.directionsUrl }))));
   } catch {
     return Response.json(payload("An official data service is temporarily unavailable. Please use the official source links and try again later.", { area, location }, Object.values(sources)), { status: 503 });
+  }
+}
+
+export async function POST(request: Request) {
+  const questionRequest = request.clone();
+  const response = await createDeterministicResponse(request);
+  if (!response.ok) return response;
+
+  const requestBody = await questionRequest.json().catch(() => null) as { question?: string } | null;
+  const data = await response.json() as ReturnType<typeof payload>;
+
+  try {
+    const enhanced = await enhanceGroundedAnswer({
+      question: requestBody?.question?.trim().slice(0, 600) ?? "",
+      data,
+      accountId: process.env.CLOUDFLARE_ACCOUNT_ID,
+      apiToken: process.env.CLOUDFLARE_API_TOKEN,
+    });
+    return Response.json({ ...data, answer: enhanced.answer, responseMode: enhanced.mode });
+  } catch {
+    return Response.json({ ...data, responseMode: "deterministic" });
   }
 }

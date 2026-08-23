@@ -17,6 +17,7 @@
 .chatMessage > strong { color: var(--blue); font-size: .7rem; text-transform: uppercase; letter-spacing: .08em; }
 .chatMessage p { margin: 0 0 .8rem; white-space: pre-wrap; line-height: 1.6; }
 .chatMessage p:last-child { margin-bottom: 0; }
+.answerMode { display: inline-block; margin-bottom: .55rem; color: var(--blue); font-size: .62rem; font-weight: 900; letter-spacing: .08em; text-transform: uppercase; }
 .toolActivity { display: block; margin-bottom: .55rem; color: var(--muted); font-size: .7rem; font-weight: 700; }
 .assistantResult { margin: 1rem 0; padding: 1rem; border: 1px solid var(--line); background: #fafafa; }
 .assistantResult h3 { margin: 0 0 .7rem; font-size: 1.08rem; }
