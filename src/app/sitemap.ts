@@ -11,7 +11,6 @@ const routes = [
   "/civicconnect/services/parking-permits",
   "/civicconnect/report",
   "/disaster-resource-coordinator",
-  "/disaster-resource-coordinator/assistant",
   "/disaster-resource-coordinator/my-area",
   "/disaster-resource-coordinator/shelters",
   "/disaster-resource-coordinator/declarations",

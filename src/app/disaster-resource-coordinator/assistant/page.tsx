@@ -1,11 +1,5 @@
-import type { Metadata } from "next";
-import { ReliefChat } from "./relief-chat";
-
-export const metadata: Metadata = {
-  title: "Ask ReliefReady",
-  description: "Ask questions grounded in official United States disaster alerts, declarations, shelter records, and recovery center data.",
-};
+import { redirect } from "next/navigation";
 
 export default function ReliefAssistantPage() {
-  return <ReliefChat />;
+  redirect("/disaster-resource-coordinator?assistant=open");
 }

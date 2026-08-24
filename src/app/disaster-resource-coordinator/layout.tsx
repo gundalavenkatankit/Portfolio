@@ -1,4 +1,6 @@
 import type { Metadata } from "next";
+import { Suspense } from "react";
+import { ReliefChatWidget } from "./relief-chat-widget";
 import "./relief.css";
 import "./shelters.css";
 import "./declarations.css";
@@ -18,5 +20,5 @@ export const metadata: Metadata = {
 };
 
 export default function DisasterLayout({ children }: LayoutProps<"/disaster-resource-coordinator">) {
-  return <div className="reliefApp">{children}</div>;
+  return <div className="reliefApp">{children}<Suspense><ReliefChatWidget /></Suspense></div>;
 }
