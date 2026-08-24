@@ -7,8 +7,6 @@ type ConversationContext = { area?: string | null; location?: string | null };
 type AssistantData = { answer: string; responseMode?: "ai" | "deterministic"; context: ConversationContext; sources: { name: string; url: string }[]; results: { title: string; details: string[]; url?: string | null }[] };
 type Message = { id: string; role: "user" | "assistant"; text: string; data?: AssistantData };
 
-const suggestions = ["Weather alerts in Texas", "Shelters near 98121", "Disaster declarations in Florida"];
-
 export function ReliefChatWidget() {
   const searchParams = useSearchParams();
   const pathname = usePathname();
@@ -74,7 +72,7 @@ export function ReliefChatWidget() {
       <header className="widgetHeader"><div><span>Official data assistant</span><h2 id="reliefChatTitle">Ask ReliefReady</h2></div><button type="button" onClick={closeChat} aria-label="Close ReliefReady chat">×</button></header>
       <div className="widgetSafety"><strong>Call 911 for immediate danger</strong><span>Verify locations before traveling.</span></div>
       <div className="widgetMessages" aria-live="polite">
-        {messages.length === 0 && <div className="widgetWelcome"><strong>How can I help?</strong><p>Ask about weather alerts, disaster declarations, shelter records, or FEMA recovery centers.</p><div>{suggestions.map(question => <button type="button" onClick={() => void ask(question)} key={question}>{question}</button>)}</div></div>}
+        {messages.length === 0 && <div className="widgetWelcome"><strong>How can I help?</strong><p>Ask about weather alerts, disaster declarations, shelter records, or FEMA recovery centers.</p></div>}
         {messages.map(message => <article className={`widgetMessage ${message.role}`} key={message.id}><strong>{message.role === "user" ? "You" : "ReliefReady"}</strong><div>{message.data && <span className="answerMode">{message.data.responseMode === "ai" ? "AI assisted response" : "Reliable fallback response"}</span>}<p>{message.text}</p>{message.data?.results.map((result, resultIndex) => <article className="assistantResult" key={`${message.id}-${resultIndex}`}><h3>{result.title}</h3><ul>{result.details.map((detail, detailIndex) => <li key={`${detailIndex}-${detail}`}>{detail}</li>)}</ul>{result.url && <a href={result.url} target="_blank" rel="noreferrer">Open location or official record →</a>}</article>)}{message.data?.sources.length ? <div className="answerSources"><span>Official sources</span>{message.data.sources.map(source => <a href={source.url} target="_blank" rel="noreferrer" key={source.name}>{source.name} →</a>)}</div> : null}</div></article>)}
         {busy && <p className="widgetStatus" role="status">Checking official data and preparing an answer.</p>}
         {status === "error" && <div className="widgetError" role="alert"><p>The service could not be reached. Please try again.</p><button type="button" onClick={() => setStatus("ready")}>Dismiss</button></div>}

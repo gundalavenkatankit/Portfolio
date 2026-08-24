@@ -3,7 +3,7 @@
 .widgetLauncher > span { width: 44px; height: 44px; display: grid; place-items: center; border-radius: 50%; background: var(--orange); font-size: .78rem; font-weight: 900; }
 .widgetLauncher > strong { font-size: .78rem; }
 .widgetLauncher:hover { background: var(--blue); }
-.widgetLauncher:focus-visible,.widgetHeader button:focus-visible,.widgetForm textarea:focus-visible,.widgetForm button:focus-visible,.widgetWelcome button:focus-visible { outline: 3px solid #f4a024; outline-offset: 3px; }
+.widgetLauncher:focus-visible,.widgetHeader button:focus-visible,.widgetForm button:focus-visible { outline: 3px solid #f4a024; outline-offset: 3px; }
 .widgetPanel { width: min(430px, calc(100vw - 32px)); height: min(680px, calc(100vh - 112px)); display: grid; grid-template-rows: auto auto minmax(0, 1fr) auto; border: 1px solid #567078; background: white; box-shadow: 0 20px 54px rgb(7 39 48 / 28%); }
 .widgetHeader { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 16px 18px; background: var(--navy); color: white; }
 .widgetHeader span { display: block; margin-bottom: 3px; color: #f0a68f; font-size: .58rem; font-weight: 900; letter-spacing: .1em; text-transform: uppercase; }
@@ -15,9 +15,6 @@
 .widgetWelcome { display: grid; gap: 8px; padding: 22px 4px; }
 .widgetWelcome > strong { font-size: 1.35rem; }
 .widgetWelcome p { margin: 0; color: var(--muted); font-size: .78rem; line-height: 1.55; }
-.widgetWelcome > div { display: grid; gap: 8px; margin-top: 10px; }
-.widgetWelcome button { padding: 10px 12px; border: 1px solid var(--line); background: white; color: var(--ink); text-align: left; font: inherit; font-size: .72rem; cursor: pointer; }
-.widgetWelcome button:hover { border-color: var(--blue); }
 .widgetMessage { display: grid; gap: 6px; margin-bottom: 12px; }
 .widgetMessage > strong { color: var(--blue); font-size: .58rem; letter-spacing: .08em; text-transform: uppercase; }
 .widgetMessage > div { padding: 12px; border: 1px solid var(--line); background: white; }
@@ -39,6 +36,7 @@
 .widgetForm label { display: block; margin-bottom: 6px; font-size: .65rem; font-weight: 800; }
 .widgetForm > div { display: grid; grid-template-columns: 1fr auto; }
 .widgetForm textarea { min-height: 58px; resize: none; padding: 9px; border: 1px solid #7f908f; border-right: 0; color: var(--ink); font: inherit; font-size: .76rem; line-height: 1.4; }
+.widgetForm textarea:focus { outline: 0; border-color: #7f908f; }
 .widgetForm > div > button { min-width: 76px; border: 0; background: var(--orange); color: white; font-weight: 900; cursor: pointer; }
 .widgetForm > div > button:disabled { opacity: .55; cursor: default; }
 .widgetStop { margin-top: 7px; font-size: .68rem; }
