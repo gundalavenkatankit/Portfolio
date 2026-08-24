@@ -1,6 +1,6 @@
 "use client";
 
-import { FormEvent, useEffect, useRef, useState } from "react";
+import { FormEvent, KeyboardEvent as ReactKeyboardEvent, useEffect, useRef, useState } from "react";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 
 type ConversationContext = { area?: string | null; location?: string | null };
@@ -67,6 +67,13 @@ export function ReliefChatWidget() {
     void ask(input);
   }
 
+  function submitOnEnter(event: ReactKeyboardEvent<HTMLTextAreaElement>) {
+    if (event.key !== "Enter" || event.shiftKey || event.nativeEvent.isComposing) return;
+    event.preventDefault();
+    if (!input.trim() || busy) return;
+    void ask(input);
+  }
+
   return <div className="reliefChatWidget">
     {isOpen && <section id="reliefChatPanel" className="widgetPanel" role="dialog" aria-labelledby="reliefChatTitle">
       <header className="widgetHeader"><div><span>Official data assistant</span><h2 id="reliefChatTitle">Ask ReliefReady</h2></div><button type="button" onClick={closeChat} aria-label="Close ReliefReady chat">×</button></header>
@@ -77,7 +84,7 @@ export function ReliefChatWidget() {
         {busy && <p className="widgetStatus" role="status">Checking official data and preparing an answer.</p>}
         {status === "error" && <div className="widgetError" role="alert"><p>The service could not be reached. Please try again.</p><button type="button" onClick={() => setStatus("ready")}>Dismiss</button></div>}
       </div>
-      <form className="widgetForm" onSubmit={submit}><label htmlFor="reliefWidgetQuestion">Your question</label><div><textarea ref={inputRef} id="reliefWidgetQuestion" value={input} onChange={event => setInput(event.target.value)} placeholder="Ask ReliefReady" rows={2} maxLength={600} disabled={busy} /><button type="submit" disabled={!input.trim() || busy}>{busy ? "Checking" : "Send"}</button></div>{busy && <button className="widgetStop" type="button" onClick={() => abortController.current?.abort()}>Stop response</button>}</form>
+      <form className="widgetForm" onSubmit={submit}><label htmlFor="reliefWidgetQuestion">Your question</label><div><textarea ref={inputRef} id="reliefWidgetQuestion" value={input} onChange={event => setInput(event.target.value)} onKeyDown={submitOnEnter} placeholder="Ask ReliefReady" rows={2} maxLength={600} disabled={busy} /><button type="submit" disabled={!input.trim() || busy}>{busy ? "Checking" : "Send"}</button></div>{busy && <button className="widgetStop" type="button" onClick={() => abortController.current?.abort()}>Stop response</button>}</form>
     </section>}
     <button ref={launcherRef} className="widgetLauncher" type="button" onClick={() => isOpen ? closeChat() : setOpen(true)} aria-expanded={isOpen} aria-controls="reliefChatPanel"><span aria-hidden="true">RR</span><strong>{isOpen ? "Close chat" : "Ask ReliefReady"}</strong></button>
   </div>;
